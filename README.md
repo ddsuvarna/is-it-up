@@ -1,4 +1,4 @@
-# is-it-up
+# server-monk
 
 A simple chrome extension to monitor your REST API servers, sends chrome notification if anything is down. Oh! and there's dark mode too! 
 
@@ -13,13 +13,13 @@ A simple chrome extension to monitor your REST API servers, sends chrome notific
 Click on the extension icon in the chrome extension toolbar
 ## Build
 
-- Use the ./is-it-up.pem" certificate to pack the extension
+- Use the ./server-monk.pem" certificate to pack the extension
 - Open chrome://extensions
 - Enable developer options
 - Click Pack Extension
-- IMPORTANT: Place the `./is-it-up.pem file outside the extension directory
+- IMPORTANT: Place the `./server-monk.pem file outside the extension directory
 - Browse and select the extension folder path
-- Browse and select the 'is-it-up.pem' file from its new location (this step is to upgrade the extension without losing the previously obtained extension ID) - Click Pack Extension
+- Browse and select the 'server-monk.pem' file from its new location (this step is to upgrade the extension without losing the previously obtained extension ID) - Click Pack Extension
 - .crx file will be saved in the parent directory of the project
 
 ## Contributing

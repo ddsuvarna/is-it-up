@@ -30,7 +30,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-- Generated ./is-it-up.pem' file
+- Generated ./server-monk.pem' file
 - Cleared commented code and formatted all files
 
 ### WIP: Future improvements
