@@ -1,0 +1,48 @@
+<html>
+   <head>
+      <link rel="stylesheet" href="./css/bootstrap.min.css" media="screen" />
+      <link rel="stylesheet" href="./css/style.css" />
+      <style>
+         .image_buttons { height: 20px; width: 20px; outline: none;}
+         a{width:100%; display:inline-block;}
+         a.dark { color: #212121 !important;}
+         /* LightTheme */
+         .bodyLight { border: 3px solid #212121;}
+         .bodyDark { background-color: #212121; color: whitesmoke; border: 2px solid whitesmoke;}
+         .tdDark { color: whitesmoke;}
+      </style>
+   </head>
+   <body id="body">
+      <div class="container" style="width:max-content; margin-top:10px">
+         <div class="row">
+            <div class="col-sm">
+               <h5 class="text-center">Server Monitoring Tool</h5>
+            </div>
+         </div>
+         <div class="row" id="noServersMessage">
+            <div class="col-sm">
+               <b style="font-size: large;">No Servers added!</b>
+               <p class="lead">To add new servers right click on the extension icon <img src="icons/icon.png" style="width:24px"><br>and click on options.</p>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm" id="status_div"></div>
+         </div>
+         <div style="margin-top: -20px;margin-bottom: 10px;" class="row">
+          
+         <div style="margin-top: 10px;" class="onOffSwitch">
+            <input type="checkbox" name="onOffSwitch" class="onOffSwitch-checkbox" id="myOnOffSwitch" />
+            <label class="onOffSwitch-label" for="myOnOffSwitch">
+            <span class="onOffSwitch-inner"></span>
+            <span class="onOffSwitch-switch"></span>
+            </label>
+         </div>
+      </div>
+      <div class="col-sm">
+         <small class="text-muted" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Developed by: <a target="_blank" href="https://github.com/ddsuvarna">DDS</a></small> 
+      </div>
+      </div>
+      </div>
+   </body>
+   <script src="./js/popup.js"></script>
+</html>

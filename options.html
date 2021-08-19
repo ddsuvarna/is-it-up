@@ -1,0 +1,103 @@
+<html>
+   <head>
+      <link rel="stylesheet" href="./css/bootstrap.min.css" media="screen" />
+      <link rel="stylesheet" href="./css/options.css" />
+      <style>
+         .pointer { cursor: pointer;}
+         #hint {cursor: pointer; outline: none;}
+      </style>
+   </head>
+   <body>
+      <div class="container" style="height: max-content;">
+         <br />
+         <div class="row">
+            <div class="col-sm">
+               <h3 class="display-5 float-left">Server Monitoring Tool</h3>
+               <div class="custom-control custom-switch float-right">
+                  <input type="checkbox" class="custom-control-input pointer" id="advancedSwitch" /> <label class="custom-control-label pointer" for="advancedSwitch" style="user-select:none;">
+                  Advanced View </label>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm">
+               <small class="text-muted" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                Developed by: <a target="_blank" href="https://github.com/ddsuvarna">DDS</a></small> 
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm">
+               <div class="card" style="margin: 10px;height:30rem">
+                  <div class="card-body">
+                     <h5 class="card-title">Add a Server</h5>
+                     <form id="myForm" style="margin-top: 35px;">
+                        <div class="form-group">
+                           <input type="text" required class="form-control" placeholder="Display Name" id="name" /> 
+                        </div>
+                        <div class="form-group">
+                           <input type="text" required class="form-control" placeholder="Server URL" id="url" /> <small class="form-text text-muted">If no port is specified the default HTTP Port 80 will be used</small>
+                           <small class="form-text text-muted"><b>Eg:</b> http://mysite.mydomain.com:9090/route</small>
+                           <small class="form-text text-muted">Where [:9090] is port number and is optional</small> 
+                        </div>
+                        <div class="form-group">
+                           <input type="text" required class="form-control" placeholder="Unique Identifier" id="uniqkey" /> <small class="form-text text-muted ">This value should be unique and with no spaces</small>
+                           <small class="form-text text-muted">Eg: SiteName </small>
+                        </div>
+                        <br>
+                        <button type="submit" id="addOneBtn" class="btn btn-primary">
+                        Submit
+                        </button>
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <div class="col-sm">
+               <div class="card" style="margin: 10px;height:30rem">
+                  <div class="card-body">
+                     <h5 class="card-title">Currently Added Servers</h5>
+                     <div style="height:21rem;">
+                        <div id="noServers" style="display: block;">No Servers Added yet!</div>
+                        <div id="listView" style="max-height:21rem;overflow-y:auto;">
+                           <ul class="list-group" id="listViewUl"></ul>
+                        </div>
+                        <textarea id="jsonView" rows=13 readonly style="overflow-y:auto;display: none;" class="card-text form-control pointer">No servers added.</textarea>
+                        <small id="jsonViewTxt" class="form-text text-muted" style="display: none;"></small> 
+                     </div>
+                     <div class="custom-control custom-switch" style="margin-top: 40px;">
+                        <input type="checkbox" class="custom-control-input pointer" id="jsonSwitch" />
+                        <label class="custom-control-label pointer" for="jsonSwitch" style="user-select: none;">
+                        JSON
+                        View</label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row" id="advacnedView" style="display: none;">
+            <div class="col-sm-12">
+               <div class="card" style="margin: 10px;">
+                  <div class="card-body">
+                     <div>
+                        <h5 class="card-title">Add bulk Server<small class="form-text text-muted">Use JSON text to add multiple servers in bulk</small></h5>
+                        <button class=" btn btn-info btn-sm" id="hint">Generate format</button>
+                     </div>
+                     <form>
+                        <small class="form-text text-muted" style="margin-bottom: 10px;">Click "Generate format" Button to generate accepted json format </small> 
+                        <div class="form-group">
+                           <textarea rows="10" required class="form-control" id="pastedJson"></textarea>
+                           <small class="form-text text-muted" style="margin-bottom: 10px;"><b>Note:</b> This overwrites the existing list of dashboards</small>
+                           <button type="submit" id="pastedJsonSubmit" class="btn btn-primary btn-sm">
+                           Submit
+                           </button>
+                     </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      </div>
+   </body>
+   <script src="./js/options.js"></script>
+</html>

@@ -1,0 +1,116 @@
+.onOffSwitch {
+  position: relative;
+  width: 71px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.onOffSwitch-checkbox {
+  display: none;
+}
+
+onOffSwitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #999999;
+  border-radius: 0px;
+}
+
+onOffSwitch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+
+onOffSwitch-inner:before,
+onOffSwitch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 22px;
+  padding: 0;
+  line-height: 22px;
+  font-size: 14px;
+  color: white;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+onOffSwitch-inner-before {
+  content: "List";
+  padding-left: 5px;
+  background-color: #034380;
+  color: #ffffff;
+}
+.onOffSwitch-inner:after {
+  content: "JSON";
+  padding-right: 5px;
+  background-color: #034380;
+  color: #ffffff;
+  text-align: right;
+}
+
+.onOffSwitch-switch {
+  display: block;
+  width: 16px;
+  margin: 3px;
+  background: #ffffff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 45px;
+  border: 2px solid #999999;
+  border-radius: 0px;
+  transition: all 0.3s ease-in 0s;
+}
+
+.onOffSwitch-checkbox:checked + .onOffSwitch-label .onOffSwitch-inner {
+  margin-left: 0;
+}
+
+.onOffSwitch-checkbox:checked + .onOffSwitch-label .onOffSwitch-switch {
+  right: 0px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .toolTipText {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.35;
+}
+
+tooltip .toolTipText::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .toolTipText {
+  visibility: visible;
+  opacity: 1;
+}
