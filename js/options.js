@@ -12,6 +12,7 @@ function UserException(message) {
 }
 
 function addOne() {
+
   let name = document.getElementById("name").value;
   try {
     var url = new URL(document.getElementById("url").value);
@@ -23,7 +24,7 @@ function addOne() {
   let dashboards = getDashboards();
   var error = false;
   uniqKey = uniqKey.replace(/ /g, "");
-  dashboards.forEach((element) => {
+  dashboards.forEach((item) => {
     if (uniqKey == item.uniqKey) {
       alert("Unique Identifier already used!");
       error = true;
@@ -64,13 +65,13 @@ function switchJsonView(jsonSwitch) {
     if (dashboards.length == 0)
       document.getElementById("noServers").style.display = "None";
     jsonView.style.display = "block";
-    jsonView.style.display = "none";
+    listView.style.display = "none";
     jsonViewTxt.style.display = "block";
   } else {
     if (dashboards.length == 0)
       document.getElementById("noServers").style.display = "Block";
     jsonView.style.display = "none";
-    jsonView.style.display = "block";
+    listView.style.display = "block";
     jsonViewTxt.style.display = "none";
   }
 }
@@ -176,7 +177,7 @@ function loadListView() {
   dashboards.forEach((item) => {
     let liClass =
       "list-group-item d-flex justify-content-between align-items-center";
-    let badgeClass = "badge badge-danger pointer";
+    let badgeClass = "badge rounded-pill bg-danger pointer";
     let li = create("LI");
     li.innerHTML = item.name;
     li.className = liClass;
@@ -188,7 +189,7 @@ function loadListView() {
       deleteServer(badge);
     });
     li.appendChild(badge);
-    listViewUl.appendChild(11);
+    listViewUl.appendChild(li);
   });
 }
 loadListView();

@@ -28,13 +28,13 @@ function switchMute(button, mute) {
     if (mute) {
       button.src = "./icons/silence2.png";
     } else {
-      button.src = "./icons/bel12.png";
+      button.src = "./icons/bell2.png";
     }
   } else {
     if (mute) {
       button.src = "./icons/dark/silence2.png";
     } else {
-      button.src = "./icons/dark/bel12.png";
+      button.src = "./icons/dark/bell2.png";
     }
   }
   return button;
@@ -78,11 +78,12 @@ function prepareTable() {
     let a = create("A");
     a.href = url.protocol + "//" + url.hostname;
     a.target = "_blank";
-    a.className = "badge badge-danger";
+    a.className = "badge rounded-pill bg-danger";
     a.appendChild(textNode(name));
     a.id = uniqKey + "Active";
-    if (theme == "dark") a.className = "badge badge-danger dark";
+    if (theme == "dark") a.className = "badge rounded-pill bg-danger";
     // * Create span to show active badge
+    let spanActive = create("SPAN")
     spanActive.className = "circle_green";
     spanActive.id = uniqKey + "Active";
     spanActive.style.display = "none";
@@ -140,18 +141,18 @@ function checkStatus() {
       .then((res) => {
         var a = document.getElementById(item.uniqKey + "Active");
         if (res.ok) {
-          if (theme == "dark") a.className = "badge badge-success dark";
-          else a.className = "badge badge-success";
+          if (theme == "dark") a.className = "badge rounded-pill bg-success dark";
+          else a.className = "badge rounded-pill bg-success";
         } else {
-          if (theme == "dark") a.className = "badge badge-danger dark";
-          else a.className = "badge badge-danger";
+          if (theme == "dark") a.className = "badge rounded-pill bg-danger";
+          else a.className = "badge rounded-pill bg-danger";
         }
       })
       .catch((err) => {
         var a = document.getElementById(item.uniqKey + "Active");
 
-        if (theme == "dark") a.className = "badge badge-danger dark";
-        else a.className = "badge badge-danger";
+        if (theme == "dark") a.className = "badge rounded-pill bg-danger";
+        else a.className = "badge rounded-pill bg-danger";
       });
   });
 }

@@ -12,11 +12,11 @@
          <br />
          <div class="row">
             <div class="col-sm">
-               <h3 class="display-5 float-left">Server Monitoring Tool</h3>
-               <div class="custom-control custom-switch float-right">
-                  <input type="checkbox" class="custom-control-input pointer" id="advancedSwitch" /> <label class="custom-control-label pointer" for="advancedSwitch" style="user-select:none;">
-                  Advanced View </label>
-               </div>
+               <h3 class="display-5 float-start">Server Monk</h3>
+               <div class="form-check form-switch float-end">
+                  <input class="form-check-input" type="checkbox" id="advancedSwitch">
+                  <label class="form-check-label" for="advancedSwitch">Advanced View</label>
+                </div>
             </div>
          </div>
          <div class="row">
@@ -27,20 +27,20 @@
          </div>
          <div class="row">
             <div class="col-sm">
-               <div class="card" style="margin: 10px;height:30rem">
+               <div class="card" style="margin: 10px;height:27rem">
                   <div class="card-body">
                      <h5 class="card-title">Add a Server</h5>
-                     <form id="myForm" style="margin-top: 35px;">
-                        <div class="form-group">
+                     <form id="myForm" style="margin-top: 15px;">
+                        <div class="mb-3">
                            <input type="text" required class="form-control" placeholder="Display Name" id="name" /> 
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                            <input type="text" required class="form-control" placeholder="Server URL" id="url" /> <small class="form-text text-muted">If no port is specified the default HTTP Port 80 will be used</small>
                            <small class="form-text text-muted"><b>Eg:</b> http://mysite.mydomain.com:9090/route</small>
                            <small class="form-text text-muted">Where [:9090] is port number and is optional</small> 
                         </div>
-                        <div class="form-group">
-                           <input type="text" required class="form-control" placeholder="Unique Identifier" id="uniqkey" /> <small class="form-text text-muted ">This value should be unique and with no spaces</small>
+                        <div class="mb-3">
+                           <input type="text" required class="form-control" placeholder="Unique Identifier" id="uniqKey" /> <small class="form-text text-muted ">This value should be unique and with no spaces</small>
                            <small class="form-text text-muted">Eg: SiteName </small>
                         </div>
                         <br>
@@ -52,43 +52,44 @@
                </div>
             </div>
             <div class="col-sm">
-               <div class="card" style="margin: 10px;height:30rem">
+               <div class="card" style="margin: 10px;height:27rem">
                   <div class="card-body">
                      <h5 class="card-title">Currently Added Servers</h5>
-                     <div style="height:21rem;">
+                     <div style="height:20rem;">
                         <div id="noServers" style="display: block;">No Servers Added yet!</div>
                         <div id="listView" style="max-height:21rem;overflow-y:auto;">
                            <ul class="list-group" id="listViewUl"></ul>
                         </div>
-                        <textarea id="jsonView" rows=13 readonly style="overflow-y:auto;display: none;" class="card-text form-control pointer">No servers added.</textarea>
+                        <textarea id="jsonView" rows=11 readonly style="overflow-y:auto;display: none;" class="card-text form-control pointer">No servers added.</textarea>
                         <small id="jsonViewTxt" class="form-text text-muted" style="display: none;"></small> 
                      </div>
-                     <div class="custom-control custom-switch" style="margin-top: 40px;">
-                        <input type="checkbox" class="custom-control-input pointer" id="jsonSwitch" />
-                        <label class="custom-control-label pointer" for="jsonSwitch" style="user-select: none;">
-                        JSON
-                        View</label>
-                     </div>
+                     <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="jsonSwitch">
+                        <label class="form-check-label" for="jsonSwitch">JSON View</label>
+                      </div>
+                    
                   </div>
                </div>
             </div>
          </div>
-         <div class="row" id="advacnedView" style="display: none;">
+         <div class="row" id="advancedView" style="display: none;">
             <div class="col-sm-12">
                <div class="card" style="margin: 10px;">
                   <div class="card-body">
                      <div>
-                        <h5 class="card-title">Add bulk Server<small class="form-text text-muted">Use JSON text to add multiple servers in bulk</small></h5>
-                        <button class=" btn btn-info btn-sm" id="hint">Generate format</button>
+                        <h5 class="card-title">Add bulk Server</h5>
+                        <p><small class="form-text text-muted">Use JSON text to add multiple servers in bulk</small></p>
+                        <p><button class=" btn btn-info btn-sm" id="hint">Generate format</button></p>
                      </div>
                      <form>
                         <small class="form-text text-muted" style="margin-bottom: 10px;">Click "Generate format" Button to generate accepted json format </small> 
-                        <div class="form-group">
+                        <div class="mb-3">
                            <textarea rows="10" required class="form-control" id="pastedJson"></textarea>
-                           <small class="form-text text-muted" style="margin-bottom: 10px;"><b>Note:</b> This overwrites the existing list of dashboards</small>
-                           <button type="submit" id="pastedJsonSubmit" class="btn btn-primary btn-sm">
+                           <small class="form-text text-muted" style="margin-bottom: 10px;">
+                              <b>Note:</b> This overwrites the existing list of dashboards</small>
+                           <p><button type="submit" id="pastedJsonSubmit" class="btn btn-primary btn-sm">
                            Submit
-                           </button>
+                           </button></p>
                      </form>
                      </div>
                   </div>
@@ -100,4 +101,5 @@
       </div>
    </body>
    <script src="./js/options.js"></script>
+   
 </html>
