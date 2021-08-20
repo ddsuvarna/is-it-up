@@ -21,7 +21,13 @@ Click on the extension icon in the chrome extension toolbar
 - Browse and select the extension folder path
 - Browse and select the 'server-monk.pem' file from its new location (this step is to upgrade the extension without losing the previously obtained extension ID) - Click Pack Extension
 - .crx file will be saved in the parent directory of the project
+
+## Good to know
+
 - Bootstrap used is v5.1
+- Tested in Chrome and brave:
+    - Chrome: Works totally fine
+    - Brave: Notification did not work
 ## Contributing
 
 Pull requests are welcome. Any kind of development coding should be done from a new branch and later merged into master after the approval of the moderators. For major changes, please open an issue first to discuss what you would like to change.

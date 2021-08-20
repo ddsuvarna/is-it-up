@@ -1,11 +1,12 @@
 function showNotification(param) {
   var notification = new Notification(param.title, {
-    icon: "/logo.png",
+    icon: "./icons/icon.png",
     body: param.body,
   });
   notification.addEventListener("click", function () {
     notification.close();
   });
+  
   return notification;
 }
 
@@ -32,6 +33,7 @@ function checkStatus() {
         .then((res) => {
           if (res.ok) {
           } else {
+            console.log("bg.js cant reach");
             url = new URL(item.url);
             showNotification({
               title: item.name + " Service Down.",
@@ -44,6 +46,7 @@ function checkStatus() {
           }
         })
         .catch((err) => {
+          console.log("bg.js cant reach");
           url = new URL(item.url);
           showNotification({
             title: item.name + " Service Down.",
@@ -61,4 +64,4 @@ checkStatus();
 
 setInterval(() => {
   checkStatus();
-}, 0.25 * 60000);
+}, 10 * 60000);
