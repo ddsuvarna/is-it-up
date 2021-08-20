@@ -2,11 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
-## Current Version: 0.4
+## Current Version: 1.0.0
 
-## Go Live version: NA
+## Go Live version: 1.0.0
 
 ## [Unreleased]
+## [1.0.0] - 2021-08-20
+
+### Added
+
+- Upgraded to bootstrap v5.1 
+- Tested in chrome and brave , works fine in chrome but notifications don't seem to work in brave
+- Changed app icon
+- Good to go for prod 
+
+### WIP: Future improvements
+
+- Error handling
+- Bulk add using upload json file
+- Improve notifications by cutting down spam notifications for a service which is down for a very long time (maybe send twice)
+- Theme changing code is a bit messy, needs to cleaned and organized for easier future changes
+- Give options to change frequency at which the notifier should check the dashboards status (currently once in 10mins)
 
 ## [0.4] - 2020-04-02
 
