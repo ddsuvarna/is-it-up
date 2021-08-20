@@ -18,14 +18,14 @@ var dashboards = [
   },
 ];
 
-if (!("ssm-first-run" in localStorage)) {
-  localStorage.setItem("ssm-theme", "light");
-  localStorage.setItem("ssm-dashboards", JSON.stringify(dashboards));
-  localStorage.setItem("ssm-first-run", "false");
+if (!("sm-first-run" in localStorage)) {
+  localStorage.setItem("sm-theme", "light");
+  localStorage.setItem("sm-dashboards", JSON.stringify(dashboards));
+  localStorage.setItem("sm-first-run", "false");
 }
 
 function checkStatus() {
-  dashboards = JSON.parse(localStorage.getItem("ssm-dashboards"));
+  dashboards = JSON.parse(localStorage.getItem("sm-dashboards"));
   dashboards.forEach((item) => {
     if (!item.mute)
       fetch(item.url)
@@ -61,4 +61,4 @@ checkStatus();
 
 setInterval(() => {
   checkStatus();
-}, 10 * 60000);
+}, 0.25 * 60000);

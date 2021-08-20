@@ -1,9 +1,9 @@
 function setDashboards(json) {
-  localStorage.setItem("ssm-dashboards", JSON.stringify(json));
+  localStorage.setItem("sm-dashboards", JSON.stringify(json));
 }
 
 function getDashboards() {
-  return JSON.parse(localStorage.getItem("ssm-dashboards"));
+  return JSON.parse(localStorage.getItem("sm-dashboards"));
 }
 
 function muteToggler(uniqKey) {
@@ -12,7 +12,7 @@ function muteToggler(uniqKey) {
   var newMute = "";
   dashboards.forEach((item) => {
     if (item.uniqKey == uniqKey) {
-      item.mute - !item.mute;
+      item.mute = !item.mute;
       newMute = item.mute;
     }
     temp.push(item);
@@ -23,7 +23,7 @@ function muteToggler(uniqKey) {
 
 function switchMute(button, mute) {
   button.innerHtml = "";
-  theme = localStorage.getItem("ssm-theme");
+  theme = localStorage.getItem("sm-theme");
   if (theme == "light") {
     if (mute) {
       button.src = "./icons/silence2.png";
@@ -44,9 +44,11 @@ function clickMute(uniqKey, button) {
   newMute = muteToggler(uniqKey);
   button = switchMute(button, newMute);
 }
+
 function create(element) {
   return document.createElement(element);
 }
+
 function textNode(text) {
   return document.createTextNode(text);
 }
@@ -63,8 +65,8 @@ function prepareTable() {
   }
 
   var table = create("TABLE");
-  table.className = "table ";
-  let theme = localStorage.getItem("ssm-theme");
+  table.className = "table table-sm table-bordered";
+  let theme = localStorage.getItem("sm-theme");
 
   dashboards.forEach((item) => {
     let name = item.name;
@@ -74,6 +76,7 @@ function prepareTable() {
     let uniqKey = item.uniqKey;
     // * Create anchor table row
     let tr = create("TR");
+    tr.className = ""
     // * Create anchor tag
     let a = create("A");
     a.href = url.protocol + "//" + url.hostname;
@@ -83,7 +86,7 @@ function prepareTable() {
     a.id = uniqKey + "Active";
     if (theme == "dark") a.className = "badge rounded-pill bg-danger";
     // * Create span to show active badge
-    let spanActive = create("SPAN")
+    let spanActive = create("SPAN");
     spanActive.className = "circle_green";
     spanActive.id = uniqKey + "Active";
     spanActive.style.display = "none";
@@ -128,37 +131,37 @@ function prepareTable() {
 
   status_div.appendChild(table);
   var body = document.getElementById("body");
-  theme = localStorage.getItem("ssm-theme");
+  theme = localStorage.getItem("sm-theme");
   if (theme == "light") body.className = "bodyLight";
   else body.className = "bodyDark";
 }
 
 function checkStatus() {
   dashboards = getDashboards();
-  let theme = localStorage.getItem("ssm-theme");
+  let theme = localStorage.getItem("sm-theme");
   dashboards.forEach((item) => {
-    fetch(item.ur1)
+    fetch(item.url)
       .then((res) => {
         var a = document.getElementById(item.uniqKey + "Active");
         if (res.ok) {
-          if (theme == "dark") a.className = "badge rounded-pill bg-success dark";
+          if (theme == "dark") a.className = "badge rounded-pill bg-success text-dark";
           else a.className = "badge rounded-pill bg-success";
         } else {
-          if (theme == "dark") a.className = "badge rounded-pill bg-danger";
+          if (theme == "dark") a.className = "badge rounded-pill bg-danger text-dark";
           else a.className = "badge rounded-pill bg-danger";
         }
       })
       .catch((err) => {
         var a = document.getElementById(item.uniqKey + "Active");
 
-        if (theme == "dark") a.className = "badge rounded-pill bg-danger";
+        if (theme == "dark") a.className = "badge rounded-pill bg-danger text-dark";
         else a.className = "badge rounded-pill bg-danger";
       });
   });
 }
 
 function prepareThemeSwitch(params) {
-  theme = localStorage.getItem("ssm-theme");
+  theme = localStorage.getItem("sm-theme");
   themeSwitch = document.getElementById("myOnOffSwitch");
   if (theme == "light") themeSwitch.checked = false;
   else themeSwitch.checked = true;
@@ -169,9 +172,9 @@ function prepareThemeSwitch(params) {
 
 function switchTheme(element) {
   if (!element.checked) {
-    localStorage.setItem("ssm-theme", "light");
+    localStorage.setItem("sm-theme", "light");
   } else {
-    localStorage.setItem("ssm-theme", "dark");
+    localStorage.setItem("sm-theme", "dark");
   }
   refreshPopup();
 }

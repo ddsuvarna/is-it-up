@@ -1,9 +1,9 @@
 function setDashboards(json) {
-  localStorage.setItem("ssm-dashboards", JSON.stringify(json));
+  localStorage.setItem("sm-dashboards", JSON.stringify(json));
 }
 
 function getDashboards() {
-  return JSON.parse(localStorage.getItem("ssm-dashboards"));
+  return JSON.parse(localStorage.getItem("sm-dashboards"));
 }
 
 function UserException(message) {
