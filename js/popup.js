@@ -95,15 +95,12 @@ function prepareTable() {
     spanInactive.className = "circle_red";
     spanInactive.id = uniqKey + "Inactive";
     spanInactive.style.display = "block";
-
     // * Create a mute button
     let button = create("INPUT");
     button.type = "image";
     button.className = "image_buttons";
     button = switchMute(button, item.mute);
-
-    // * The reason why add event listener is used
-
+    // * The reason why addEventListener() is used
     // * https://stackoverflow.com/questions/13591983/onclick-within-chrome-extension-not-working
     button.addEventListener("click", function () {
       clickMute(item.uniqKey, button);
@@ -116,19 +113,16 @@ function prepareTable() {
     let td3 = create("TD");
     td3.appendChild(button);
     // * Prepare rows
-
     if (theme == "dark") {
       td1.className = "tdDark";
       td2.className = "tdDark";
       td3.className = "tdDark;";
     }
-
     tr.appendChild(td1);
     tr.appendChild(td2);
     tr.appendChild(td3);
     table.appendChild(tr);
   });
-
   status_div.appendChild(table);
   var body = document.getElementById("body");
   theme = localStorage.getItem("sm-theme");
@@ -178,9 +172,11 @@ function switchTheme(element) {
   }
   refreshPopup();
 }
+
 function refreshPopup() {
   prepareTable();
   checkStatus();
 }
+
 prepareThemeSwitch();
 refreshPopup();
