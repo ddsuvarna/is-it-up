@@ -1,6 +1,6 @@
 # server-monk
 
-A simple chrome extension to monitor your REST API servers, sends chrome notification if anything is down. Oh! and there's dark mode too! 
+A simple chrome extension to monitor your servers, sends chrome notification if anything is down. Oh! and there's dark mode too! 
 
 ## Installation 
 
